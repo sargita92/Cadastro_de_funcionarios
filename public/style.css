@@ -8,8 +8,10 @@ body {
     margin: auto;
  }
 
+
  .table {
     display: table;
+    float: left;
     border: 1px solid #40A1F5;
  }
  .table .th {
@@ -35,4 +37,29 @@ body {
  }
  .clear {
    clear: both;
+ }
+
+ .form {
+    display: table;
+    float: right;
+    background-color: #F9F9F9;
+    border: 1px solid #F9F9F9;
+ }
+
+ .form .tr{
+   display: table-row;
+   border-bottom: 1px solid #000;
+ }
+
+ .form .td {
+   display: table-cell;
+   padding: 15px;
+   border-bottom: 1px solid #F9F9F9;
+ }
+
+ .form .tr:last-child .td{
+   border: 0;
+ }
+ #options{
+    clear: both;
  }

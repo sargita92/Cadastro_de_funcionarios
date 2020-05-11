@@ -100,12 +100,11 @@ function addToTable(object,lineIndex)
 
 function populateTable(headers,objects)
 {
-    let lineIndex = 0;
+
     createHeader(headers);
-    for (let object of objects)
+    for (let object in objects)
     {
-        addToTable(object,lineIndex);
-        lineIndex++;
+        addToTable(objects[object],object);
     }
 
 }
@@ -122,4 +121,65 @@ function deleteLine(headers,objects,linha)
 
 }
 
+function generateForm(headers)
+{
+    let arrayTd = [];
+
+    for (let i = 0; i < headers.length-2 ; i++)
+    {
+
+
+        let divLinha = document.createElement('div');
+        divLinha.className = 'tr';
+
+        let divLbl = document.createElement('div');
+        divLbl.className = 'td';
+
+        let txt    = document.createTextNode(headers[i]);
+        divLbl.appendChild(txt);
+
+        let divTxt = document.createElement('div');
+        divTxt.className = 'td';
+
+        let input    = document.createElement('input');
+        input.setAttribute("type","text");
+        divTxt.appendChild(input);
+
+        divLinha.appendChild(divLbl);
+        divLinha.appendChild(divTxt);
+
+        let divForm = document.getElementById("form");
+        divForm.appendChild(divLinha);
+
+
+    }
+
+
+    let divLinha = document.createElement('div');
+    divLinha.className = 'tr';
+
+    let divSave = document.createElement('div');
+    divSave.className = 'td';
+
+    let btnSave    = document.createElement('Button');
+    let txtSave    = document.createTextNode("Save");
+    btnSave.appendChild(txtSave);
+    divSave.appendChild(btnSave);
+
+    let divCancel = document.createElement('div');
+    divCancel.className = 'td';
+
+    let btnCancel    = document.createElement('Button');
+    let txtCancel    = document.createTextNode("Cancel");
+    btnCancel.appendChild(txtCancel);
+    divCancel.appendChild(btnCancel);
+
+    divLinha.appendChild(divSave);
+    divLinha.appendChild(divCancel);
+
+    let divForm = document.getElementById("form");
+    divForm.appendChild(divLinha);
+}
+
+generateForm(headers);
 populateTable(headers,funcionarios);
