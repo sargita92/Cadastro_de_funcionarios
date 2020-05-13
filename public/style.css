@@ -41,7 +41,7 @@ body {
 
  .form {
     display: table;
-    float: right;
+    float: left;
     background-color: #F9F9F9;
     border: 1px solid #F9F9F9;
  }
